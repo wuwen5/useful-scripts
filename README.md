@@ -392,3 +392,31 @@ ESTABLISHED    290
 TIME_WAIT    212
 SYN_SENT    17
 ```
+
+:beer: [parseOpts.sh](parseOpts.sh)
+----------------------
+
+提供命令行选项解析函数`parseOpts`，支持选项的值有多个值（即数组）。  
+\# 自己写一个命令行选项解析函数，是因为[`bash`](http://linux.die.net/man/1/bash)的`buildin`命令[`getopts`](http://linux.die.net/man/1/getopts)和加强版本命令[`getopt`](http://linux.die.net/man/1/getopt)都不支持数组的值。
+
+指定选项的多个值（即数组）的风格模仿[`find`](http://linux.die.net/man/1/find)命令的`-exec`选项：
+
+```bash
+$ find . -name \*.txt -exec echo "find file: " {} \;
+find file: foo.txt
+find file: bar.txt
+...
+```
+
+### 用法
+
+`parseOpts`函数的第一个参数是要解析的选项说明，后面跟实际要解析的输入参数。
+
+选项说明可以长选项和短选项，用逗号分隔，如`a,a-long`。不同选项的说明间用竖号分隔，如`a,a-long|b,b-long:`。
+
+选项说明最后可以有选项类型说明：
+
+- `-`： 无参数的选项。即有选项则把值设置成`true`。这是 ***缺省*** 的类型。
+- `:`： 有参数的选项，值只有一个。
+- `+`： 有多个参数值的选项。值列表要以`;`表示结束。   
+注意，`;`是`Bash`的元字符（用于一行中多个命令分隔），所以加上转义写成`\;`（当然也可以按你的喜好写成`";"`或`';'`）。
