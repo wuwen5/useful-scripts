@@ -1,7 +1,7 @@
 :snail: `Java`相关脚本
 ====================================
 
-:beer: [show-busy-java-threads.sh](show-busy-java-threads.sh)
+:beer: [show-busy-java-threads.sh](../show-busy-java-threads.sh)
 ----------------------
 
 在排查`Java`的`CPU`性能问题时(`top us`值过高)，要找出`Java`进程中消耗`CPU`多的线程，并查看它的线程栈，从而找出导致性能问题的方法调用。
@@ -67,7 +67,7 @@ The stack of busy(26.1%) thread(24018/0x5dd2) of java process(23269) of user(adm
 
 [silentforce](https://github.com/silentforce)改进此脚本，增加对环境变量`JAVA_HOME`的判断。
 
-:beer: [show-duplicate-java-classes](show-duplicate-java-classes)
+:beer: [show-duplicate-java-classes](../show-duplicate-java-classes)
 ----------------------
 
 找出`java`库（即`jar`文件）或`class`目录中的重复类。
@@ -154,7 +154,7 @@ class paths to find:
 
 [tgic](https://github.com/tg123)提供此脚本。友情贡献者的链接[commandlinefu.cn](http://commandlinefu.cn/)|[微博linux命令行精选](http://weibo.com/u/2674868673)
 
-:beer: [find-in-jars.sh](find-in-jars.sh)
+:beer: [find-in-jars.sh](../find-in-jars.sh)
 ----------------------
 
 在当前目录下所有`jar`文件里，查找类或资源文件。
